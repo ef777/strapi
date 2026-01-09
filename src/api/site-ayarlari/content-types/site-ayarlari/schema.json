@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_ayarlaris",
+  "info": {
+    "singularName": "site-ayarlari",
+    "pluralName": "site-ayarlaris",
+    "displayName": "Site Ayarları",
+    "description": "Site genel ayarları"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "site_adi": {
+      "type": "string",
+      "required": true
+    },
+    "site_aciklamasi": {
+      "type": "text"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "favicon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "sosyal_medya": {
+      "type": "json"
+    },
+    "iletisim_email": {
+      "type": "email"
+    },
+    "footer_text": {
+      "type": "text"
+    }
+  }
+}

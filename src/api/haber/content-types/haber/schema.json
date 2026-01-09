@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "haberler",
+  "info": {
+    "singularName": "haber",
+    "pluralName": "haberler",
+    "displayName": "Haber",
+    "description": "Haber içerikleri"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "baslik": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "baslik",
+      "required": true
+    },
+    "ozet": {
+      "type": "text",
+      "maxLength": 300
+    },
+    "icerik": {
+      "type": "richtext",
+      "required": true
+    },
+    "kapak_resmi": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "kategori": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::kategori.kategori",
+      "inversedBy": "haberler"
+    },
+    "yazar": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::yazar.yazar",
+      "inversedBy": "haberler"
+    },
+    "etiketler": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::etiket.etiket",
+      "inversedBy": "haberler"
+    },
+    "yayin_tarihi": {
+      "type": "datetime",
+      "required": true
+    },
+    "guncelleme_tarihi": {
+      "type": "datetime"
+    },
+    "okunma_sayisi": {
+      "type": "integer",
+      "default": 0
+    },
+    "manset": {
+      "type": "boolean",
+      "default": false
+    },
+    "manset_sira": {
+      "type": "integer",
+      "default": 0
+    },
+    "sondakika": {
+      "type": "boolean",
+      "default": false
+    },
+    "durum": {
+      "type": "enumeration",
+      "enum": ["taslak", "yayinda", "arsiv"],
+      "default": "taslak"
+    }
+  }
+}

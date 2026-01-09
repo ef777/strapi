@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "yazarlar",
+  "info": {
+    "singularName": "yazar",
+    "pluralName": "yazarlar",
+    "displayName": "Yazar",
+    "description": "Haber yazarları"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isim": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "isim",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "biyografi": {
+      "type": "richtext"
+    },
+    "foto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "sosyal_medya": {
+      "type": "json"
+    },
+    "aktif": {
+      "type": "boolean",
+      "default": true
+    },
+    "haberler": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::haber.haber",
+      "mappedBy": "yazar"
+    }
+  }
+}

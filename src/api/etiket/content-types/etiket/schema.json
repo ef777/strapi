@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "etiketler",
+  "info": {
+    "singularName": "etiket",
+    "pluralName": "etiketler",
+    "displayName": "Etiket",
+    "description": "Haber etiketleri"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isim": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "isim",
+      "required": true
+    },
+    "haberler": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::haber.haber",
+      "mappedBy": "etiketler"
+    }
+  }
+}
