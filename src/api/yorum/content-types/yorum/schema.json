@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "yorumlar",
+  "info": {
+    "singularName": "yorum",
+    "pluralName": "yorumlar",
+    "displayName": "Yorum",
+    "description": "Haber yorumlari"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "icerik": {
+      "type": "text",
+      "required": true,
+      "maxLength": 2000
+    },
+    "haber": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::haber.haber",
+      "inversedBy": "yorumlar"
+    },
+    "parent_yorum": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::yorum.yorum",
+      "inversedBy": "cevaplar"
+    },
+    "cevaplar": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::yorum.yorum",
+      "mappedBy": "parent_yorum"
+    },
+    "kullanici": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "misafir_adi": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "misafir_email": {
+      "type": "email"
+    },
+    "durum": {
+      "type": "enumeration",
+      "enum": ["beklemede", "onaylandi", "reddedildi"],
+      "default": "beklemede"
+    },
+    "begeni_sayisi": {
+      "type": "integer",
+      "default": 0
+    },
+    "ip_adresi": {
+      "type": "string",
+      "private": true
+    }
+  }
+}

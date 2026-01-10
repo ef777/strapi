@@ -80,6 +80,16 @@
       "type": "enumeration",
       "enum": ["taslak", "yayinda", "arsiv"],
       "default": "taslak"
+    },
+    "yorumlar": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::yorum.yorum",
+      "mappedBy": "haber"
+    },
+    "yorum_aktif": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

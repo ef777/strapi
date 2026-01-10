@@ -1,0 +1,101 @@
+{
+  "kind": "singleType",
+  "collectionName": "tema_ayarlaris",
+  "info": {
+    "singularName": "tema-ayarlari",
+    "pluralName": "tema-ayarlaris",
+    "displayName": "Tema Ayarlari",
+    "description": "Site tema ve gorunum ayarlari"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "varsayilan_tema": {
+      "type": "enumeration",
+      "enum": ["light", "dark", "system"],
+      "default": "system"
+    },
+    "ana_renk": {
+      "type": "string",
+      "default": "#dc2626",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "ikincil_renk": {
+      "type": "string",
+      "default": "#1f2937",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "vurgu_renk": {
+      "type": "string",
+      "default": "#f59e0b",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "baslik_fontu": {
+      "type": "enumeration",
+      "enum": ["Merriweather", "Georgia", "Playfair Display", "Roboto Slab", "Source Serif Pro", "Lora", "PT Serif"],
+      "default": "Merriweather"
+    },
+    "govde_fontu": {
+      "type": "enumeration",
+      "enum": ["Inter", "Open Sans", "Roboto", "Lato", "Source Sans Pro", "Noto Sans", "PT Sans"],
+      "default": "Inter"
+    },
+    "light_mode": {
+      "type": "json",
+      "default": {
+        "background": "#ffffff",
+        "surface": "#f9fafb",
+        "text_primary": "#111827",
+        "text_secondary": "#6b7280",
+        "border": "#e5e7eb"
+      }
+    },
+    "dark_mode": {
+      "type": "json",
+      "default": {
+        "background": "#111827",
+        "surface": "#1f2937",
+        "text_primary": "#f9fafb",
+        "text_secondary": "#9ca3af",
+        "border": "#374151"
+      }
+    },
+    "logo_dark": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "font_size_base": {
+      "type": "integer",
+      "default": 16,
+      "min": 12,
+      "max": 20
+    },
+    "layout_style": {
+      "type": "enumeration",
+      "enum": ["modern", "classic_newspaper", "minimal"],
+      "default": "classic_newspaper"
+    },
+    "header_sticky": {
+      "type": "boolean",
+      "default": true
+    },
+    "show_reading_time": {
+      "type": "boolean",
+      "default": true
+    },
+    "show_author": {
+      "type": "boolean",
+      "default": true
+    },
+    "articles_per_page": {
+      "type": "integer",
+      "default": 12,
+      "min": 6,
+      "max": 24
+    }
+  }
+}
