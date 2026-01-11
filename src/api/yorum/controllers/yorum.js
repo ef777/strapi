@@ -1,6 +1,8 @@
-import { factories } from '@strapi/strapi';
+'use strict';
 
-export default factories.createCoreController('api::yorum.yorum', ({ strapi }) => ({
+const { createCoreController } = require('@strapi/strapi').factories;
+
+module.exports = createCoreController('api::yorum.yorum', ({ strapi }) => ({
   // Belirli bir haberin yorumlarini getir
   async findByHaber(ctx) {
     const { haberId } = ctx.params;
