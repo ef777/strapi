@@ -7,6 +7,6 @@ export default {
     // Bootstrap is empty - no auto seed data
     // Configure permissions manually via Strapi Admin Panel:
     // Settings -> Users & Permissions -> Roles -> Public
-    console.log(' Strapi baþlatýldý');
+    console.log('Strapi baslatildi');
   },
 };
