@@ -236,6 +236,33 @@ export default {
     });
     console.log('✅ Site ayarları eklendi');
 
+    // 6. Tema Ayarları (Single Type)
+    await strapi.entityService.create('api::tema-ayarlari.tema-ayarlari', {
+      data: {
+        varsayilan_tema: 'system',
+        ana_renk: '#dc2626',
+        ikincil_renk: '#1f2937',
+        vurgu_renk: '#f59e0b',
+        baslik_fontu: 'Merriweather',
+        govde_fontu: 'Inter',
+        light_mode: {
+          background: '#ffffff',
+          surface: '#f9fafb',
+          text_primary: '#111827',
+          text_secondary: '#6b7280',
+          border: '#e5e7eb',
+        },
+        dark_mode: {
+          background: '#111827',
+          surface: '#1f2937',
+          text_primary: '#f9fafb',
+          text_secondary: '#9ca3af',
+          border: '#374151',
+        },
+      },
+    });
+    console.log('✅ Tema ayarları eklendi');
+
     console.log('🎉 Örnek veriler başarıyla eklendi!');
   },
 };
@@ -261,6 +288,10 @@ async function setPublicPermissions(strapi: Core.Strapi) {
     { action: 'api::etiket.etiket.find' },
     { action: 'api::etiket.etiket.findOne' },
     { action: 'api::site-ayarlari.site-ayarlari.find' },
+    { action: 'api::tema-ayarlari.tema-ayarlari.find' },
+    { action: 'api::yorum.yorum.find' },
+    { action: 'api::yorum.yorum.findOne' },
+    { action: 'api::yorum.yorum.create' },
   ];
 
   for (const perm of permissions) {
